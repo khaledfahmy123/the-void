@@ -84,7 +84,6 @@ const Land = () => {
 
   return (
     <>
-      <Load></Load>
       <section className="land">
         <TabContext.Provider value={{ active_Tab, tab }}>
           <section className="innerLand">
@@ -98,7 +97,7 @@ const Land = () => {
   );
 };
 
-const Load = () => {
+const Load = (props) => {
   const remLoad = () => {
     css(
       [".load"],
@@ -120,7 +119,14 @@ const Load = () => {
           Use headphones for a better experince <br></br>[the circle in the
           header controles background music]
         </h3>
-        <h3 onClick={() => remLoad()}>click to start</h3>
+        <h3
+          onClick={() => {
+            props.sound();
+            remLoad();
+          }}
+        >
+          click to start
+        </h3>
       </section>
     </>
   );
@@ -442,22 +448,22 @@ const Header = () => {
     }, 1300);
   };
   const { tab, active_Tab } = useContext(TabContext);
+
   const clicked = (e) => {
     trans();
-    $(".active").classList.remove("active");
-    e.target.classList.add("active");
+
     setTimeout(() => {
+      $(".active").classList.remove("active");
+      e.target.classList.add("active");
       return active_Tab(e.target.classList[0]);
-    }, 1200);
+    }, 1000);
   };
 
   const [volume, setVolume] = useState(0.2);
   const [play, { stop, sound }] = useSound(mySound, { volume });
 
   const sound_cont = () => {
-    let e = document.querySelector(".sound");
-
-    if (e.classList.toggle("s_on")) {
+    if ($(".sound").classList.toggle("s_on")) {
       sound.loop(true);
       play();
     } else {
@@ -467,6 +473,7 @@ const Header = () => {
   return (
     <>
       <header className="header">
+        <Load sound={sound_cont}></Load>
         <div className="trans">
           <span></span>
         </div>
@@ -474,8 +481,9 @@ const Header = () => {
           <main>
             <span
               className="sound"
-              onClick={() => sound_cont()}
-              onTouchStart={() => sound_cont()}
+              onClick={() => {
+                sound_cont();
+              }}
             >
               <span></span>
             </span>
@@ -488,10 +496,11 @@ const Header = () => {
                         key={id.getTime()}
                         className={e.tab + " " + e.state}
                         data-replace={e.tab}
-                        onClick={(e) => clicked(e)}
-                        onTouchStart={(e) => clicked(e)}
+                        onClick={(e) => {
+                          clicked(e);
+                        }}
                       >
-                        <span>{e.tab}</span>
+                        {e.tab}
                       </a>
                     </li>
                   </>
