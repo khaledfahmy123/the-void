@@ -1,0 +1,514 @@
+import React, { useEffect, useState, useContext } from "react";
+import "../css/main.css";
+import "../css/scroll.css";
+import "../css/media.css";
+import { nav, videos, articals, links, trend_topic } from "./data";
+import useSound from "use-sound";
+import mySound from "./../back_sound/sound1.mp3"; // Your sound file path here
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowsLeftRight,
+  faAnglesLeft,
+} from "@fortawesome/free-solid-svg-icons";
+
+var id = new Date();
+
+/*==========================================================*/
+
+/*==========================================================*/
+/*==========================================================*/
+/*==========================================================*/
+
+let pos = 900;
+
+const css = (e, styles, ...l) => {
+  setTimeout(() => {
+    for (let i = 0; i < e.length; i++) {
+      let d = $(e[i]);
+      for (const property in styles) d.style[property] = styles[property];
+    }
+  }, l[0] || 0);
+};
+
+const $ = (e) => document.querySelector(e);
+
+const animScroll = () => {
+  if (pos > 500) {
+    pos = 0;
+    css([".scroller"], {
+      animation: "revScroll 2s ease forwards",
+    });
+    css([".after"], {
+      animation: "reveal 2s ease forwards",
+    });
+  } else {
+    pos = 900;
+    console.log(pos);
+    css([".scroller"], {
+      animation: "-revScroll 2s ease forwards ",
+    });
+    css([".after"], {
+      animation: "-reveal 2s ease forwards ",
+    });
+  }
+};
+
+/*==========================================================*/
+/*==========================================================*/
+/*==========================================================*/
+
+const TabContext = React.createContext();
+
+function App() {
+  return (
+    <>
+      <Land></Land>
+    </>
+  );
+}
+
+const Land = () => {
+  const [tab, setTab] = useState("trending");
+
+  const active_Tab = (e) => {
+    setTab(e);
+  };
+
+  const sec = {
+    videos: <Videos></Videos>,
+    trending: <Trend></Trend>,
+    articles: <Artic></Artic>,
+  };
+
+  return (
+    <>
+      <section className="land">
+        <TabContext.Provider value={{ active_Tab, tab }}>
+          <section className="innerLand">
+            <Header></Header>
+            {sec[tab]}
+            <Footer></Footer>
+          </section>
+        </TabContext.Provider>
+      </section>
+    </>
+  );
+};
+
+const Videos = () => {
+  const changeBack = (e) => {
+    $(".vid_pic").style.backgroundImage =
+      "url(" +
+      require("./../artics/climate/" +
+        e.target.parentElement.classList[0].split("/").join(".")) +
+      ")";
+
+    $(".vid_pic").style.animation = "start 0.5s ease forwards";
+  };
+  const removeBack = (e) => {
+    $(".vid_pic").style.animation = "end 0.7s ease forwards";
+  };
+
+  return (
+    <>
+      <section className="videos">
+        <div className="cont">
+          <main>
+            <div className="vid_pic"></div>
+            <ul className="topics" onMouseOut={() => removeBack()}>
+              {videos.map((e, i) => {
+                return (
+                  <>
+                    <li key={id.getTime()} className={"top" + i}>
+                      <a
+                        key={id.getTime()}
+                        href={e.link}
+                        className={e.name}
+                        onMouseEnter={(e) => changeBack(e)}
+                        target="_blank"
+                      >
+                        <h2>{e.title}</h2>
+                      </a>
+                    </li>
+                  </>
+                );
+              })}
+            </ul>
+          </main>
+        </div>
+      </section>
+    </>
+  );
+};
+
+const Trend = () => {
+  const openTrend = () => {
+    css([".header", ".footer"], {
+      visibility: "Hidden",
+      opacity: 0,
+    });
+
+    $(".trend button").classList.add("but-active");
+    css(
+      [".trend button"],
+      {
+        opacity: 1,
+      },
+      3000
+    );
+
+    css([".trend"], { position: "absolute" }, 2000);
+
+    css([".cover"], { height: "100%" }, 1000);
+
+    css([".cover"], {
+      transform: "translate(-50%, -50%)",
+      transition: "height 0.3s cubic-bezier(0.77, 0, 0.175, 1)",
+      height: "60%",
+      left: "50%",
+      top: "50%",
+    });
+
+    css(
+      [".innerLand"],
+      { gridTemplate: "'head' 0% 'body' 100% 'foot' 0%" },
+      1000
+    );
+
+    setTimeout(() => {
+      $(".content").classList.add("content-active");
+      $(".trend-topic").classList.add("trend-topic-active");
+    }, 2000);
+  };
+
+  /*==========================================================================*/
+  /*================================== Close Trend ===========================*/
+  /*==========================================================================*/
+
+  const closeTrend = () => {
+    css(
+      [".header", ".footer"],
+      {
+        visibility: "visible",
+        opacity: 1,
+      },
+      2000
+    );
+
+    $(".trend button").classList.remove("but-active");
+    css([".trend button"], {
+      opacity: 0,
+    });
+
+    css([".trend"], { position: "relative" });
+
+    css([".cover"], { height: "100%" }, 2000);
+
+    css(
+      [".cover"],
+      {
+        transform: "translate(-50%, -50%)",
+        transition: "height 0.3s cubic-bezier(0.77, 0, 0.175, 1)",
+        height: "60%",
+        left: "50%",
+        top: "50%",
+      },
+      500
+    );
+
+    css(
+      [".innerLand"],
+      { gridTemplate: "'head' 18% 'body' 72% 'foot' 10%" },
+      2000
+    );
+
+    setTimeout(() => {
+      $(".content").classList.remove("content-active");
+      $(".trend-topic").classList.remove("trend-topic-active");
+    }, 1000);
+  };
+
+  const changeBack = () => {
+    $(".cover").style.backgroundImage =
+      "url(" +
+      require("./../artics/climate/" + "img1.jpg") +
+      // e.target.classList[0].split("/").join(".")) +
+      ")";
+
+    $(".cover").style.animation = "start 0.5s ease forwards";
+  };
+  return (
+    <>
+      <main className="trend">
+        <button
+          onClick={() => {
+            $(".content").scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+
+            setTimeout(() => {
+              closeTrend();
+            }, 1500);
+          }}
+        >
+          <h3>
+            <FontAwesomeIcon
+              className="icon"
+              icon={faAnglesLeft}
+            ></FontAwesomeIcon>{" "}
+            Back
+          </h3>
+        </button>
+        <div className="cover"></div>
+        <section className="content">
+          <div className="inner-trend">
+            <article>
+              <h2
+                onClick={() => {
+                  openTrend();
+                }}
+              >
+                {articals[0].title}
+              </h2>
+              <p>{articals[0].txt}</p>
+            </article>
+          </div>
+
+          <Trend_Topic></Trend_Topic>
+        </section>
+      </main>
+    </>
+  );
+};
+
+var paras = trend_topic.part1.txt.split("#");
+
+const Trend_Topic = () => {
+  return (
+    <>
+      <main className="trend-topic">
+        <section className="pulsar">
+          <div className="part1">
+            <h2 className="h1">#Towards the Metaverse</h2>
+            <p className="p1">{paras[0]}</p>
+            <img
+              className="img1"
+              src={require("./../artics/galaxy/vr.gif")}
+            ></img>
+
+            <p className="p2">{paras[1]}</p>
+            <p className="p3">{paras[2]}</p>
+
+            <img
+              className="img2"
+              src={require("./../artics/galaxy/meta.webp")}
+            ></img>
+
+            <h2 className="h2">{trend_topic.part1.h}</h2>
+
+            <p className="p4">
+              {paras[3]}
+              <br></br>
+              <br></br>
+              {paras[4] +
+                " Let me give you a hint, Click this arrow in the image!"}
+              <span
+                onClick={() => animScroll()}
+                style={{ cursor: "pointer", display: "none" }}
+              >
+                {" "}
+                Click Me!
+              </span>
+            </p>
+
+            <div className="window">
+              <div className="before">
+                <img
+                  className="content-image"
+                  src={require("./../artics/galaxy/b6.gif")}
+                />
+              </div>
+              <div className="after">
+                <img
+                  className="content-image im2"
+                  src={require("./../artics/galaxy/dims2.gif")}
+                />
+              </div>
+              <div className="scroller" onClick={() => animScroll()}>
+                <FontAwesomeIcon
+                  icon={faArrowsLeftRight}
+                  className="icon"
+                ></FontAwesomeIcon>
+              </div>
+            </div>
+            <p className="p5">
+              <br></br>= Yup! you guessed it right, it's the processor.
+              <br></br>
+              <br></br>
+              {paras[5]}
+              <br></br>
+              <br></br>
+              {paras[6]}
+            </p>
+            <p className="p6">
+              <ul className="points">
+                {paras[7].split("*").map((e) => {
+                  return (
+                    <>
+                      <li key={id.getTime()}>{e}</li>
+                    </>
+                  );
+                })}
+              </ul>
+              {paras[8]}
+            </p>
+            <img
+              className="img4"
+              src={require("./../artics/galaxy/meme.jpg")}
+            ></img>
+            <p className="p7">
+              {paras[9]}
+              <br></br>
+              <br></br>
+              {paras[10]}
+            </p>
+            <p className="f">
+              {paras[11]} #{paras[12]}
+            </p>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+};
+
+const Header = () => {
+  const trans = () => {
+    css([".trans"], {
+      transition: "1.2s cubic-bezier(0.77, 0, 0.175, 1)",
+      height: "100%",
+    });
+    css([".trans span"], {
+      transition: "0.8s cubic-bezier(0.77, 0, 0.175, 1) 0.3s",
+      height: "100%",
+    });
+
+    setTimeout(() => {
+      css([".trans"], {
+        transition: "1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.1s",
+        height: "0%",
+      });
+      css([".trans span"], {
+        transition: "0.8s cubic-bezier(0.77, 0, 0.175, 1)",
+        height: "0%",
+      });
+    }, 1300);
+  };
+  const { tab, active_Tab } = useContext(TabContext);
+  const clicked = (e) => {
+    trans();
+    $(".active").classList.remove("active");
+    e.target.classList.add("active");
+    setTimeout(() => {
+      return active_Tab(e.target.classList[0]);
+    }, 1200);
+  };
+
+  const [volume, setVolume] = useState(0.2);
+  const [play, { stop, sound }] = useSound(mySound, { volume });
+
+  const sound_cont = () => {
+    let e = document.querySelector(".sound");
+
+    if (e.classList.toggle("s_on")) {
+      sound.loop(true);
+      play();
+    } else {
+      console.log("off");
+      stop();
+    }
+  };
+  return (
+    <>
+      <header className="header">
+        <div className="trans">
+          <span></span>
+        </div>
+        <div className="cont">
+          <main>
+            <span className="sound" onClick={() => sound_cont()}>
+              <span></span>
+            </span>
+            <ul className="nav">
+              {nav.map((e) => {
+                return (
+                  <>
+                    <li key={id.getTime()}>
+                      <a
+                        key={id.getTime()}
+                        className={e.tab + " " + e.state}
+                        data-replace={e.tab}
+                        onClick={(e) => clicked(e)}
+                      >
+                        <span>{e.tab}</span>
+                      </a>
+                    </li>
+                  </>
+                );
+              })}
+            </ul>
+          </main>
+        </div>
+      </header>
+    </>
+  );
+};
+
+const Artic = () => {
+  return (
+    <>
+      <header className="header">
+        <div className="cont">
+          <main></main>
+        </div>
+      </header>
+    </>
+  );
+};
+
+const Footer = () => {
+  return (
+    <>
+      <section className="footer">
+        <div className="cont">
+          <main>
+            <h3>#the_void</h3>
+            <ul className="links">
+              {links.map((e) => {
+                return (
+                  <>
+                    <li key={id.getTime()}>
+                      <a href={e.link} target="_blank">
+                        <FontAwesomeIcon
+                          icon={e.icon}
+                          className="icon"
+                        ></FontAwesomeIcon>
+                        <h4>{e.title}</h4>
+                      </a>
+                    </li>
+                  </>
+                );
+              })}
+            </ul>
+            <div className="creator">
+              <h4>Created by Khaled Fahmy</h4>
+            </div>
+          </main>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default App;

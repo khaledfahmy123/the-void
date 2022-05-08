@@ -1,0 +1,220 @@
+@media screen and (max-width: 1024px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .inner-trend h2,
+  .inner-trend p {
+    text-align: center;
+  }
+
+  .inner-trend {
+    font-size: clamp(30px, 4vw, 35px);
+  }
+
+  .links h4 {
+    display: none;
+  }
+
+  .creator h4 {
+    font-size: clamp(10px, 4vw, 14px);
+  }
+
+  .pulsar {
+    padding: 80px 30px 0;
+  }
+
+  .p6 .points {
+    padding-left: 60px;
+  }
+
+  .nav li {
+    font-size: clamp(25px, 4vw, 30px);
+  }
+
+  .sound {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer .icon {
+    font-size: clamp(30px, 4vw, 35px);
+  }
+
+  .part1 .f {
+    font-size: clamp(25px, 3vw, 30px);
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .innerLand {
+    grid-template:
+      "head" 12%
+      "body" 78%
+      "foot" 10%;
+  }
+  .pulsar .part1 {
+    grid-template:
+      "h1 h1 h1"
+      "p1 p1 p1"
+      "img1 img1 img1"
+      "p2 p2 p2"
+      "p3 p3 p3"
+      "img2 img2 img2"
+      "h2 h2 h2"
+      "p4 p4 p4"
+      "img3 img3 img3"
+      "wind wind wind"
+      "p5 p5 p5"
+      "p6 p6 p6"
+      "img4 img4 img4"
+      "p7 p7 p7"
+      "f f f";
+  }
+
+  .trend article {
+    width: 85%;
+  }
+
+  .img1 {
+    width: 90%;
+    height: 90%;
+  }
+
+  .pulsar h2,
+  .pulsar p {
+    text-align: center;
+  }
+
+  .pulsar p {
+    font-size: clamp(20px, 3vw, 25px);
+  }
+
+  .pulsar .points li {
+    text-align: left;
+    margin: 16px 0;
+  }
+
+  .pulsar img {
+    justify-self: center;
+    align-self: center;
+  }
+
+  .window {
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .pulsar {
+    padding-top: 30px;
+  }
+
+  h3 {
+    font-size: clamp(15px, 3vw, 20px);
+  }
+
+  .header main {
+    grid-template-columns: 1fr 3fr;
+  }
+  .innerLand {
+    grid-template:
+      "head" 10%
+      "body" 80%
+      "foot" 10%;
+  }
+  .cont {
+    padding: 0 10px;
+  }
+  .topics {
+    padding: 10px 10px;
+  }
+
+  .footer main {
+    grid-template: "lo";
+    grid-template-columns: 3fr;
+  }
+  .creator {
+    display: none;
+  }
+  .links {
+    display: none;
+  }
+
+  .pulsar p {
+    font-size: clamp(21px, 3vw, 25px);
+  }
+
+  .pulsar .part1 h2 {
+    margin: 30px 0 0;
+    font-size: clamp(33px, 4vw, 38px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  . .inner-trend h2 {
+    font-size: clamp(18px, 3vw, 23px);
+  }
+
+  .inner-trend p {
+    margin: 5px 0;
+    font-size: clamp(12px, 2vw, 17px);
+  }
+
+  .header .nav li {
+    padding: 0 5px;
+    font-size: clamp(16px, 3vw, 21px);
+  }
+
+  .sound {
+    width: 20px;
+    height: 20px;
+  }
+
+  .topics h2 {
+    font-size: clamp(19px, 3vw, 24px);
+  }
+
+  .window {
+    height: 290px;
+  }
+  :root {
+    --width: 20px;
+  }
+  .window .scroller {
+    width: 40px;
+    height: 40px;
+    font-size: 7px;
+  }
+
+  .scroller .icon {
+    font-size: 18px;
+  }
+
+  .window .content-image {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .pulsar {
+    padding: 10px 5px;
+  }
+  .pulsar p {
+    font-size: clamp(14px, 3vw, 18px);
+  }
+  .pulsar .part1 h2 {
+    font-size: clamp(19px, 3vw, 22px);
+  }
+  .p6 .points {
+    padding: 0 0 0 20px;
+  }
+
+  .p6 .points li {
+    margin: 8px 0;
+  }
+  .part1 .f {
+    font-size: clamp(15px, 3vw, 19px);
+  }
+}
