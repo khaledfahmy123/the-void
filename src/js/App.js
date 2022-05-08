@@ -469,12 +469,12 @@ const Header = () => {
 
 const Artic = () => {
   const move = () => {
-    let l = Math.floor(Math.random() * 50);
-    let m = Math.floor(Math.random() * 90);
+    let l = Math.floor(Math.random() * 90);
+    let m = Math.floor(Math.random() * 50);
 
     css([".yes"], {
-      top: l + "%",
-      left: m + "%",
+      top: m + "%",
+      left: l + "%",
     });
   };
 
