@@ -99,10 +99,28 @@ const Land = () => {
 };
 
 const Load = () => {
+  const remLoad = () => {
+    css(
+      [".load"],
+      {
+        display: "none",
+      },
+      1000
+    );
+
+    css([".load"], {
+      opacity: "0",
+    });
+  };
   return (
     <>
       <section className="load">
         <img src={require("./../artics/climate/load.gif")}></img>
+        <h3>
+          Use headphones for a better experince <br></br>[the circle in the
+          header controles background music]
+        </h3>
+        <h3 onClick={() => remLoad()}>click to start</h3>
       </section>
     </>
   );
@@ -128,7 +146,11 @@ const Videos = () => {
         <div className="cont">
           <main>
             <div className="vid_pic"></div>
-            <ul className="topics" onMouseOut={() => removeBack()}>
+            <ul
+              className="topics"
+              onMouseOut={() => removeBack()}
+              onTouchEnd={() => removeBack()}
+            >
               {videos.map((e, i) => {
                 return (
                   <>
@@ -138,6 +160,7 @@ const Videos = () => {
                         href={e.link}
                         className={e.name}
                         onMouseEnter={(e) => changeBack(e)}
+                        onTouchStart={(e) => changeBack(e)}
                         target="_blank"
                       >
                         <h2>{e.title}</h2>
@@ -438,7 +461,6 @@ const Header = () => {
       sound.loop(true);
       play();
     } else {
-      console.log("off");
       stop();
     }
   };
@@ -450,7 +472,11 @@ const Header = () => {
         </div>
         <div className="cont">
           <main>
-            <span className="sound" onClick={() => sound_cont()}>
+            <span
+              className="sound"
+              onClick={() => sound_cont()}
+              onTouchStart={() => sound_cont()}
+            >
               <span></span>
             </span>
             <ul className="nav">
@@ -463,6 +489,7 @@ const Header = () => {
                         className={e.tab + " " + e.state}
                         data-replace={e.tab}
                         onClick={(e) => clicked(e)}
+                        onTouchStart={(e) => clicked(e)}
                       >
                         <span>{e.tab}</span>
                       </a>
