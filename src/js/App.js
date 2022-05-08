@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import "../css/main.css";
 import "../css/scroll.css";
+
+import "../css/gay.css";
 import "../css/media.css";
 import { nav, videos, articals, links, trend_topic } from "./data";
 import useSound from "use-sound";
@@ -466,11 +468,113 @@ const Header = () => {
 };
 
 const Artic = () => {
+  const move = () => {
+    let l = Math.floor(Math.random() * 50);
+    let m = Math.floor(Math.random() * 90);
+
+    css([".yes"], {
+      top: l + "%",
+      left: m + "%",
+    });
+  };
+
+  const heyDarrel = () => {
+    css([".inner-trend article"], {
+      opacity: 0,
+    });
+    css(
+      [".vid"],
+      {
+        opacity: 1,
+      },
+      1000
+    );
+
+    setTimeout(() => {
+      $(".vid").play();
+    }, 1000);
+  };
+
+  const sub = () => {
+    if ($(".type").value != "i'm gay") {
+      alert("wrong");
+    } else {
+      css([".art2"], {
+        opacity: "0",
+      });
+      css(
+        [".art2"],
+        {
+          display: "none",
+        },
+        1000
+      );
+
+      css(
+        [".art1"],
+        {
+          display: "block",
+          opacity: "1",
+        },
+        1000
+      );
+    }
+  };
+
   return (
     <>
-      <header className="header">
+      <header className="artic">
         <div className="cont">
-          <main></main>
+          <main className="trend">
+            <section className="content">
+              <div className="inner-trend">
+                <video className="vid">
+                  <source
+                    src={require("./../artics/climate/laugh.mp4")}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <article className="art1">
+                  <h2>
+                    {
+                      "Sorry this section for straight people only, Are you gay?"
+                    }
+                  </h2>
+                  <div className="choice">
+                    <button
+                      className="yes"
+                      onMouseOver={() => move()}
+                      onClick={() => move()}
+                    >
+                      No
+                    </button>
+                    <button className="no" onClick={() => heyDarrel()}>
+                      yes
+                    </button>
+                  </div>
+                </article>
+                <article className="art2">
+                  <h2>Type the words to continue</h2>
+                  <div className="choice">
+                    <img
+                      className="captcha"
+                      src={require("./../artics/climate/gaylol.jpg")}
+                    ></img>
+                    <input type="text" class="type"></input>
+                    <button
+                      className="sub"
+                      onClick={() => {
+                        sub();
+                      }}
+                    >
+                      Continue
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </main>
         </div>
       </header>
     </>

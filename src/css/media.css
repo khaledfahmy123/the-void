@@ -153,7 +153,14 @@
 }
 
 @media screen and (max-width: 500px) {
-  . .inner-trend h2 {
+  .captcha {
+    width: 100%;
+  }
+
+  .type {
+    width: 100%;
+  }
+  .inner-trend h2 {
     font-size: clamp(18px, 3vw, 23px);
   }
 
@@ -197,7 +204,7 @@
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 370px) {
   .pulsar {
     padding: 10px 5px;
   }
