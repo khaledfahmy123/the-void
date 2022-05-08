@@ -84,6 +84,7 @@ const Land = () => {
 
   return (
     <>
+      <Load></Load>
       <section className="land">
         <TabContext.Provider value={{ active_Tab, tab }}>
           <section className="innerLand">
@@ -92,6 +93,16 @@ const Land = () => {
             <Footer></Footer>
           </section>
         </TabContext.Provider>
+      </section>
+    </>
+  );
+};
+
+const Load = () => {
+  return (
+    <>
+      <section className="load">
+        <img src={require("./../artics/climate/load.gif")}></img>
       </section>
     </>
   );
