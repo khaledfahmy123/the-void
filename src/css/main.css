@@ -162,7 +162,7 @@ h5 {
 }
 
 p {
-  font-size: clamp(17px, 4vw, 24px);
+  font-size: 16px;
   line-height: 1.7em;
   width: 100%;
 }
@@ -229,7 +229,7 @@ header ul {
   min-height: 25px;
   padding: 0 20px;
 
-  font-size: 15px;
+  font-size: clamp(15px, 3vw, 25px);
   font-weight: 400;
   text-transform: uppercase;
 
@@ -533,9 +533,8 @@ main {
   color: #fff;
 }
 
-.trend h2 {
+.trend-title {
   font-weight: bold;
-  /* font-size: clamp(40px, 45px, 52px); */
   text-transform: capitalize;
   margin: 0;
   cursor: pointer;
@@ -547,7 +546,7 @@ main {
 }
 
 .trend p {
-  font-size: 23px;
+  font-size: 20px;
   color: #bbb;
 }
 

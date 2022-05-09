@@ -41,11 +41,15 @@
   width: 100%;
 }
 
+:root {
+  --width: 35px;
+}
+
 .scroller {
-  width: 70px;
-  height: 70px;
+  width: calc(var(--width) * 2);
+  height: calc(var(--width) * 2);
   position: absolute;
-  left: calc(100% - 35px);
+  left: calc(100% - var(--width));
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;

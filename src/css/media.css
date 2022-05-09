@@ -9,16 +9,12 @@
     text-align: center;
   }
 
-  .inner-trend {
-    font-size: clamp(30px, 4vw, 35px);
-  }
-
   .links h4 {
     display: none;
   }
 
   .creator h4 {
-    font-size: clamp(10px, 4vw, 14px);
+    font-size: clamp(3px, 2vw, 13px);
   }
 
   .pulsar {
@@ -29,21 +25,17 @@
     padding-left: 60px;
   }
 
-  .nav li {
-    font-size: clamp(25px, 4vw, 30px);
-  }
-
   .sound {
-    width: 40px;
-    height: 40px;
+    width: 23px;
+    height: 23px;
   }
 
   .footer .icon {
-    font-size: clamp(30px, 4vw, 35px);
+    font-size: clamp(12px, 4vw, 25px);
   }
 
   .part1 .f {
-    font-size: clamp(25px, 3vw, 30px);
+    font-size: 18px;
     padding: 0;
   }
 }
@@ -83,36 +75,20 @@
     height: 90%;
   }
 
-  .pulsar h2,
-  .pulsar p {
-    text-align: center;
-  }
-
-  .pulsar p {
-    font-size: clamp(20px, 3vw, 25px);
-  }
-
   .pulsar .points li {
     text-align: left;
-    margin: 16px 0;
+    margin: 1em 0;
   }
 
   .pulsar img {
     justify-self: center;
     align-self: center;
   }
-
-  .window {
-  }
 }
 
 @media screen and (max-width: 650px) {
   .pulsar {
     padding-top: 30px;
-  }
-
-  h3 {
-    font-size: clamp(15px, 3vw, 20px);
   }
 
   .header main {
@@ -133,7 +109,7 @@
 
   .footer main {
     grid-template: "lo";
-    grid-template-columns: 3fr;
+    grid-template-columns: 5fr;
   }
   .creator {
     display: none;
@@ -142,13 +118,12 @@
     display: none;
   }
 
-  .pulsar p {
-    font-size: clamp(21px, 3vw, 25px);
-  }
-
   .pulsar .part1 h2 {
     margin: 30px 0 0;
-    font-size: clamp(33px, 4vw, 38px);
+  }
+
+  .trend p {
+    font-size: 16px;
   }
 }
 
@@ -161,17 +136,17 @@
     width: 100%;
   }
   .inner-trend h2 {
-    font-size: clamp(18px, 3vw, 23px);
+    font-size: 24px;
+    text-align: left;
   }
 
   .inner-trend p {
     margin: 5px 0;
-    font-size: clamp(12px, 2vw, 17px);
+    text-align: left;
   }
 
   .header .nav li {
     padding: 0 5px;
-    font-size: clamp(16px, 3vw, 21px);
   }
 
   .sound {
@@ -190,8 +165,6 @@
     --width: 20px;
   }
   .window .scroller {
-    width: 40px;
-    height: 40px;
     font-size: 7px;
   }
 
@@ -206,13 +179,11 @@
 
 @media screen and (max-width: 370px) {
   .pulsar {
-    padding: 10px 5px;
+    padding: 20px 17px;
   }
-  .pulsar p {
-    font-size: clamp(14px, 3vw, 18px);
-  }
+
   .pulsar .part1 h2 {
-    font-size: clamp(19px, 3vw, 22px);
+    font-size: 24px;
   }
   .p6 .points {
     padding: 0 0 0 20px;
@@ -220,8 +191,5 @@
 
   .p6 .points li {
     margin: 8px 0;
-  }
-  .part1 .f {
-    font-size: clamp(15px, 3vw, 19px);
   }
 }

@@ -307,6 +307,7 @@ const Trend = () => {
           <div className="inner-trend">
             <article>
               <h2
+                className="trend-title"
                 onClick={() => {
                   openTrend();
                 }}
