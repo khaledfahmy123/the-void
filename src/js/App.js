@@ -290,8 +290,12 @@ const Trend = () => {
             });
 
             setTimeout(() => {
+              css([".read"], { opacity: "0.8" }, 500);
+              css([".read"], { display: "block" });
+              css([".scroll-icon"], { display: "none" }, 500);
+              css([".scroll-icon"], { opacity: 0 });
               closeTrend();
-            }, 1500);
+            }, 500);
           }}
         >
           <h3>
@@ -309,12 +313,31 @@ const Trend = () => {
               <h2
                 className="trend-title"
                 onClick={() => {
-                  openTrend();
+                  // openTrend();
                 }}
               >
                 {articals[0].title}
               </h2>
               <p>{articals[0].txt}</p>
+              <h3
+                className="read"
+                onClick={() => {
+                  css([".read"], { opacity: "0" });
+                  css([".scroll-icon"], { display: "block" });
+                  css([".read"], { display: "none" }, 500);
+                  css([".scroll-icon"], { opacity: 1 }, 2000);
+                  openTrend();
+                }}
+              >
+                Read More
+              </h3>
+              <div className="scroll-icon">
+                <svg class="arrows">
+                  <path class="a1" d="M0 0 L30 32 L60 0"></path>
+                  <path class="a2" d="M0 20 L30 52 L60 20"></path>
+                  <path class="a3" d="M0 40 L30 72 L60 40"></path>
+                </svg>
+              </div>
             </article>
           </div>
 
@@ -520,7 +543,7 @@ const Artic = () => {
     let l = Math.floor(Math.random() * 90);
     let m = Math.floor(Math.random() * 50);
 
-    css([".yes"], {
+    css([".no"], {
       top: m + "%",
       left: l + "%",
     });
@@ -544,7 +567,12 @@ const Artic = () => {
   };
 
   const sub = () => {
-    if ($(".type").value != "i'm gay") {
+    if (
+      !$(".type")
+        .value.replace(/\s+/g, " ")
+        .replace(/^[ \t]+|[ \t]+$/g, "")
+        .match(/^(?:.*i'm gay)*$/gi)
+    ) {
       alert("wrong");
     } else {
       css([".art2"], {
@@ -586,30 +614,34 @@ const Artic = () => {
                 <article className="art1">
                   <h2>
                     {
-                      "Sorry this section for straight people only, Are you gay?"
+                      "Good news, you're not a robot. Bad news, this section for straight people only.one last time- Are you gay?"
                     }
                   </h2>
                   <div className="choice">
+                    <button className="yes" onClick={() => heyDarrel()}>
+                      yes
+                    </button>
                     <button
-                      className="yes"
+                      className="no"
                       onMouseOver={() => move()}
                       onClick={() => move()}
                     >
-                      No
-                    </button>
-                    <button className="no" onClick={() => heyDarrel()}>
-                      yes
+                      no
                     </button>
                   </div>
                 </article>
                 <article className="art2">
-                  <h2>Type the words to continue</h2>
+                  <h2>Are you a robot?</h2>
                   <div className="choice">
                     <img
                       className="captcha"
                       src={require("./../artics/climate/gaylol.jpg")}
                     ></img>
-                    <input type="text" class="type"></input>
+                    <input
+                      type="text"
+                      class="type"
+                      placeholder="type the text"
+                    ></input>
                     <button
                       className="sub"
                       onClick={() => {

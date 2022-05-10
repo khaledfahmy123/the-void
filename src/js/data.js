@@ -65,9 +65,9 @@ export const links = [
 
 export const articals = [
   {
-    title: "The Metaverse Is Coming: We may already be in a Simulation",
+    title: "#The Metaverse Is Coming: We may already be in a Simulation",
     txt:
-      "The simulation hypothesis is a proposal regarding the nature of existence which posits that all of existence is an artificial simulation but unlike the chosen one in the world of The Matrix, we may not be able to tell what’s real and what’s not",
+      "The simulation hypothesis is a proposal regarding the nature of existence which posits that all of existence is an artificial simulation...",
     img: "img1/jpg",
   },
 ];

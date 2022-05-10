@@ -28,7 +28,7 @@
   padding: 20px;
   margin: 20px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.15s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,14 +43,14 @@
   grid-area: y;
   width: 100px;
   height: 60px;
-  top: calc(50% - 30px);
+  top: calc(60% - 30px);
   left: calc(50% - 50px - 130px);
 }
 
 .no {
   position: absolute;
-  top: calc(50% - 30px);
-  left: calc(50% - 50px);
+  top: calc(60% - 30px);
+  left: calc(60% - 50px);
   grid-area: n;
   width: 100px;
   height: 60px;
