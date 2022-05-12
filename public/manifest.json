@@ -3,17 +3,17 @@
   "name": "Khaled's Personal Blog",
   "icons": [
     {
-      "src": "ico.ico",
+      "src": "blue-logo-512.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "280067.png",
+      "src": "logo-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "280067.png",
+      "src": "blue-logo-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
