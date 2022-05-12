@@ -169,7 +169,7 @@ const Videos = () => {
                         onTouchStart={(e) => changeBack(e)}
                         target="_blank"
                       >
-                        <h2>{e.title}</h2>
+                        <h2 key={id.getTime()}>{e.title}</h2>
                       </a>
                     </li>
                   </>
@@ -332,16 +332,16 @@ const Trend = () => {
               </h3>
               <div className="scroll-icon">
                 <svg
-                  class="arrows"
+                  className="arrows"
                   onClick={() => {
                     $("#metaverse").scrollIntoView({
                       behavior: "smooth",
                     });
                   }}
                 >
-                  <path class="a1" d="M0 0 L30 32 L60 0"></path>
-                  <path class="a2" d="M0 20 L30 52 L60 20"></path>
-                  <path class="a3" d="M0 40 L30 72 L60 40"></path>
+                  <path className="a1" d="M0 0 L30 32 L60 0"></path>
+                  <path className="a2" d="M0 20 L30 52 L60 20"></path>
+                  <path className="a3" d="M0 40 L30 72 L60 40"></path>
                 </svg>
               </div>
             </article>
@@ -383,8 +383,7 @@ const Trend_Topic = () => {
               {paras[3]}
               <br></br>
               <br></br>
-              {paras[4] +
-                " Let me give you a hint, Click this arrow in the image!"}
+              {paras[4]}
               <span
                 onClick={() => animScroll()}
                 style={{ cursor: "pointer", display: "none" }}
@@ -495,6 +494,7 @@ const Header = () => {
   const sound_cont = () => {
     if ($(".sound").classList.toggle("s_on")) {
       sound.loop(true);
+      sound.pause();
       play();
     } else {
       stop();
@@ -679,12 +679,12 @@ const Footer = () => {
                 return (
                   <>
                     <li key={id.getTime()}>
-                      <a href={e.link} target="_blank">
+                      <a href={e.link} target="_blank" key={id.getTime()}>
                         <FontAwesomeIcon
                           icon={e.icon}
                           className="icon"
                         ></FontAwesomeIcon>
-                        <h4>{e.title}</h4>
+                        <h4 key={id.getTime()}>{e.title}</h4>
                       </a>
                     </li>
                   </>
