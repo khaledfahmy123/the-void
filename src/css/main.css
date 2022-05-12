@@ -570,18 +570,17 @@ main {
 
 .trend .but-active {
   transition: all 0.4s ease-in-out;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
   display: block;
   position: absolute;
-  top: 5%;
+  top: 2%;
   left: 0;
   padding: 5px 10px 5px 5px;
   box-sizing: border-box;
   z-index: 6;
-  background: #fff;
+  background: #000;
   cursor: pointer;
-  border: 2px solid var(--clr-light);
+  border: none;
+  /* border: 2px solid var(--clr-light); */
 }
 
 .trend button h3 {
