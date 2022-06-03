@@ -3,7 +3,6 @@
 my personal blog i created using react.js to post my own pop science articles, mainly in philosophy and physics, using some animations and simple graphics to deliver the idea in an elegant interactive way
 
 ## Blog Sections
-
 there are three major sections in the blog Trending, Videos, and Articles
 
 ### Trending
