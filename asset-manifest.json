@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/the-void/static/css/main.13b2869c.css",
-    "main.js": "/the-void/static/js/main.8f287423.js",
+    "main.css": "/the-void/static/css/main.50c1249c.css",
+    "main.js": "/the-void/static/js/main.7862a90e.js",
     "static/js/845.7effee67.chunk.js": "/the-void/static/js/845.7effee67.chunk.js",
     "static/media/b6.gif": "/the-void/static/media/b6.c981754861a3fa3a3196.gif",
     "static/media/img1.jpg": "/the-void/static/media/img1.9af799ebd46c7f67997c.jpg",
@@ -15,22 +15,24 @@
     "static/media/img4.jpg": "/the-void/static/media/img4.5db49942ac9cef168684.jpg",
     "static/media/img3.jpg": "/the-void/static/media/img3.323679e0264f240acb39.jpg",
     "static/media/leo4.webp": "/the-void/static/media/leo4.4662034a22dd70981ba1.webp",
+    "static/media/soon.jpg": "/the-void/static/media/soon.d1583e4dbfbf6a967abc.jpg",
     "static/media/leo5.jpg": "/the-void/static/media/leo5.1cab2090991aee000be7.jpg",
     "static/media/img6.jpg": "/the-void/static/media/img6.aaf19c851a24047d9bd8.jpg",
     "static/media/img5.jpg": "/the-void/static/media/img5.bffb3002bf8b48913879.jpg",
     "static/media/meme.jpg": "/the-void/static/media/meme.3f869473f0f93723fee2.jpg",
+    "static/media/cover4.jpg": "/the-void/static/media/cover4.496bcc08cc86ebf0fd5d.jpg",
     "static/media/leo1.jpg": "/the-void/static/media/leo1.f5974db98d47964c51af.jpg",
     "static/media/leo3.webp": "/the-void/static/media/leo3.ac7dbfe094bc3716b3db.webp",
     "static/media/leo.jpg": "/the-void/static/media/leo.a8dc1d76fe75e9a74229.jpg",
     "static/media/meta.webp": "/the-void/static/media/meta.329577906829d2b22075.webp",
     "static/media/load.gif": "/the-void/static/media/load.bd322bf2714fdf271687.gif",
     "index.html": "/the-void/index.html",
-    "main.13b2869c.css.map": "/the-void/static/css/main.13b2869c.css.map",
-    "main.8f287423.js.map": "/the-void/static/js/main.8f287423.js.map",
+    "main.50c1249c.css.map": "/the-void/static/css/main.50c1249c.css.map",
+    "main.7862a90e.js.map": "/the-void/static/js/main.7862a90e.js.map",
     "845.7effee67.chunk.js.map": "/the-void/static/js/845.7effee67.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.13b2869c.css",
-    "static/js/main.8f287423.js"
+    "static/css/main.50c1249c.css",
+    "static/js/main.7862a90e.js"
   ]
 }
