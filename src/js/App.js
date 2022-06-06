@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import "../css/main.css";
 import "../css/scroll.css";
 
-import "../css/gay.css";
+import "../css/articals-style.css";
 import "../css/media.css";
 import { nav, videos, trend_artic, links, trend_topic, articals } from "./data";
 import useSound from "use-sound";
