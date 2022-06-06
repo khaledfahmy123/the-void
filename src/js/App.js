@@ -4,7 +4,7 @@ import "../css/scroll.css";
 
 import "../css/gay.css";
 import "../css/media.css";
-import { nav, videos, articals, links, trend_topic } from "./data";
+import { nav, videos, trend_artic, links, trend_topic, articals } from "./data";
 import useSound from "use-sound";
 import mySound from "./../back_sound/sound1.mp3"; // Your sound file path here
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -79,7 +79,7 @@ const Land = () => {
   const sec = {
     videos: <Videos></Videos>,
     trending: <Trend></Trend>,
-    articles: <Artic></Artic>,
+    articles: <Artics></Artics>,
   };
 
   return (
@@ -116,8 +116,8 @@ const Load = (props) => {
       <section className="load">
         <img src={require("./../artics/climate/load.gif")}></img>
         <h3>
-          Use headphones for a better experince <br></br>[the circle in the
-          header controles background music]
+          Use headphones for a better experince <br></br>[Use the circle in the
+          header to controle background music]
         </h3>
         <h3
           onClick={() => {
@@ -315,9 +315,9 @@ const Trend = () => {
                   // openTrend();
                 }}
               >
-                {articals[0].title}
+                {trend_artic[0].title}
               </h2>
-              <p>{articals[0].txt}</p>
+              <p>{trend_artic[0].txt}</p>
               <h3
                 className="read"
                 onClick={() => {
@@ -544,125 +544,39 @@ const Header = () => {
   );
 };
 
-const Artic = () => {
-  const move = () => {
-    let l = Math.floor(Math.random() * 90);
-    let m = Math.floor(Math.random() * 50);
-
-    css([".no"], {
-      top: m + "%",
-      left: l + "%",
-    });
-  };
-
-  const heyDarrel = () => {
-    css([".inner-trend article"], {
-      opacity: 0,
-    });
-    css(
-      [".vid"],
-      {
-        opacity: 1,
-      },
-      1000
-    );
-
-    setTimeout(() => {
-      $(".vid").play();
-    }, 1000);
-  };
-
-  const sub = () => {
-    if (
-      !$(".type")
-        .value.replace(/\s+/g, " ")
-        .replace(/^[ \t]+|[ \t]+$/g, "")
-        .match(/^(?:.*i'm gay)*$/gi)
-    ) {
-      alert("wrong");
-    } else {
-      css([".art2"], {
-        opacity: "0",
-      });
-      css(
-        [".art2"],
-        {
-          display: "none",
-        },
-        1000
-      );
-
-      css(
-        [".art1"],
-        {
-          display: "block",
-          opacity: "1",
-        },
-        1000
-      );
-    }
-  };
-
+const Artics = () => {
   return (
     <>
-      <header className="artic">
+      <section className="artics-sec">
         <div className="cont">
-          <main className="trend">
-            <section className="content">
-              <div className="inner-trend">
-                <video className="vid">
-                  <source
-                    src={require("./../artics/climate/laugh.mp4")}
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-                <article className="art1">
-                  <h2>
-                    {
-                      "Good news, you're not a robot. Bad news, this section for straight people only.one last time- Are you gay?"
-                    }
-                  </h2>
-                  <div className="choice">
-                    <button className="yes" onClick={() => heyDarrel()}>
-                      yes
-                    </button>
-                    <button
-                      className="no"
-                      onMouseOver={() => move()}
-                      onClick={() => move()}
-                    >
-                      no
-                    </button>
-                  </div>
-                </article>
-                <article className="art2">
-                  <h2>Are you a robot?</h2>
-                  <div className="choice">
-                    <img
-                      className="captcha"
-                      src={require("./../artics/climate/gaylol.jpg")}
-                    ></img>
-                    <input
-                      type="text"
-                      class="type"
-                      placeholder="type the text"
-                    ></input>
-                    <button
-                      className="sub"
-                      onClick={() => {
-                        sub();
-                      }}
-                    >
-                      Continue
-                    </button>
-                  </div>
-                </article>
-              </div>
-            </section>
+          <main className="artics">
+            {articals.map((e) => {
+              return (
+                <>
+                  <Artic_Box
+                    title={e.title}
+                    cover={e.cover}
+                    date={e.date}
+                  ></Artic_Box>
+                </>
+              );
+            })}
           </main>
         </div>
-      </header>
+      </section>
+    </>
+  );
+};
+
+const Artic_Box = (props) => {
+  // console.log(props.cover);
+  return (
+    <>
+      <article className="artic-temp">
+        <img src={props.cover}></img>
+        <h3>{props.title}</h3>
+        <h5>{props.date}</h5>
+      </article>
     </>
   );
 };

@@ -3,7 +3,6 @@ import {
   faTwitter,
   faInstagram,
   faLinkedinIn,
-  faDribbble,
 } from "@fortawesome/free-brands-svg-icons";
 
 export const nav = [
@@ -63,7 +62,7 @@ export const links = [
   },
 ];
 
-export const articals = [
+export const trend_artic = [
   {
     title: "#The Metaverse Is Coming: We may already be in a Simulation",
     txt:
@@ -100,3 +99,29 @@ export const trend_topic = {
 
   part2: {},
 };
+
+export const articals = [
+  {
+    title: "Do we live in a simulation?",
+    cover: require("./../artics/simulated_universe/cover4.jpg"),
+    date: "12/5/2022",
+  },
+
+  {
+    title: "The true nature of light",
+    cover: require("./../artics/simulated_universe/soon.jpg"),
+    date: "soon",
+  },
+
+  {
+    title: "A world you've never witnessed",
+    cover: require("./../artics/simulated_universe/soon.jpg"),
+    date: "soon",
+  },
+
+  {
+    title: "Interstellar candles",
+    cover: require("./../artics/simulated_universe/soon.jpg"),
+    date: "soon",
+  },
+];

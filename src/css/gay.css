@@ -1,86 +1,74 @@
-.artic .trend article {
-  width: 80%;
-}
-
-.artic .trend {
-  position: relative;
-}
-.choice {
-  justify-self: center;
-  align-self: center;
-  margin: auto;
-  width: 80%;
+.artics-sec {
+  /* position: relative; */
   height: 100%;
-  display: grid;
-  grid-template: "y" "." "n" "." ".";
-  grid-template-rows: repeat(5, 3em);
-  grid-gap: 20px 0;
 }
 
-.artic button {
-  max-height: 3em;
-  justify-self: center;
-  display: block;
-  opacity: 1;
-  background: #fff;
-  border: none;
-  font-size: 30px;
-  padding: 20px;
-  margin: 20px;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
+.artics-sec .cont {
+  height: 100%;
+}
+
+.artics {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  overflow-y: scroll;
 }
 
-.artic button:hover {
+.artics::-webkit-scrollbar {
+  background: #133355;
+  width: 12px;
+  border-radius: 50px;
   color: #fff;
 }
 
-.yes {
-  position: absolute;
-  grid-area: y;
-  width: 100px;
-  height: 60px;
-  top: calc(60% - 30px);
-  left: calc(50% - 50px - 130px);
+.artics::-webkit-scrollbar-thumb {
+  background: #185391;
+  width: 12px;
+  border-radius: 50px;
+  color: #fff;
 }
 
-.no {
-  position: absolute;
-  top: calc(60% - 30px);
-  left: calc(60% - 50px);
-  grid-area: n;
-  width: 100px;
-  height: 60px;
-}
-
-.artic .inner-trend {
-  position: relative;
-}
-
-.vid {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-
-.art1 {
-  display: none;
-}
-
-.art2 h2 {
-  margin: 20px;
-}
-
-.art2 {
+.artic-temp {
+  --w: 300px;
+  width: var(--w);
+  height: var(--w);
+  overflow: hidden;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  cursor: pointer;
+  /* background: rgba(85, 179, 214, 0.2); */
+  transition: all 0.3s ease;
+  margin: 0px 15px 15px;
 }
 
-.type {
-  font-size: 22px;
+.artic-temp img {
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0.5px 0.5px 9px #000;
+}
+
+.artic-temp h3 {
+  font-size: 21px;
+  line-height: 25px;
+  padding: 13px 10px;
+  margin: 0;
+  height: auto;
+  text-transform: capitalize;
+}
+
+.artic-temp h5 {
+  font-size: 16px;
+  margin: 0;
+  padding: 0px 10px 10px;
+  color: #666;
+}
+
+.artic-temp:hover {
+  background: rgba(12, 57, 113, 0.6);
 }
