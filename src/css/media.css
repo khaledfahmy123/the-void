@@ -38,6 +38,10 @@
     font-size: 18px;
     padding: 0;
   }
+
+  .artics {
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 850px) {
@@ -174,6 +178,19 @@
 
   .window .content-image {
     max-width: 500px;
+  }
+
+  .artics {
+    padding: 10px;
+  }
+
+  .artics::-webkit-scrollbar-thumb,
+  .artics::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  .artic-temp {
+    margin: 0 7px 7px;
   }
 }
 
